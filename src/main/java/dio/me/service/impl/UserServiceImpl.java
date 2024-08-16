@@ -1,5 +1,6 @@
 package dio.me.service.impl;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.stereotype.Service;
@@ -29,4 +30,10 @@ public class UserServiceImpl implements UserService {
         }
         return userRepository.save(userToCreate);
     }
+
+	@Override
+	public List<User> findAll() {
+		List<User> users = userRepository.findAll();
+		return users;
+	}
 }

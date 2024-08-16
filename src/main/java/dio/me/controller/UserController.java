@@ -1,6 +1,7 @@
 package dio.me.controller;
 
 import java.net.URI;
+import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,11 @@ public class UserController {
        var user = userService.findById(id);
        return ResponseEntity.ok(user);
     }
+    
+    @GetMapping
+    public List<User> getAllUsers() {  
+        return userService.findAll(); 
+    }  
 
     @PostMapping
     public ResponseEntity<User> create(@RequestBody User userToCreate) {
